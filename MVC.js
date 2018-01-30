@@ -13,7 +13,20 @@ c.initialize = function(){
   
 }
 //=================| END of INITIALIZE /=======//
-c.getPassword = function(){}
-c.downloadContacts = function(){}
-c.save
+c.getPassword = function(guessedPassword){
+  //The actual password is found in the checkPassword.php file
+}
+c.downloadContacts = function(){
+}
+c.addContact = function(){}
+c.saveContact = function(){}
+c.deleteContact = function(){}
+c.addAndSave = function(){
+  c.addContact()
+  c.saveContact()
+}
+c.deleteAndSave = function(){
+  c.deleteContact()
+  c.saveContact()
+}
 c.showContacts = function(){}
