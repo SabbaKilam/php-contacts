@@ -15,6 +15,15 @@ c.initialize = function(){
 //=================| END of INITIALIZE /=======//
 c.getPassword = function(guessedPassword){
   //The actual password is found in the checkPassword.php file
+  //make a postman
+  const postman = new XMLHttpRequest()
+  postman.open(`POST`, `checkPassword.php`)
+  postman.send(guessedPassword)
+  //wait for a response after a load event from server
+  postman.addEventListener(`load`, function(){
+    alert(postman.response)
+  })
+  
 }
 c.downloadContacts = function(){
 }
