@@ -13,7 +13,7 @@ c.initialize = function(){
   
 }
 //=================| END of INITIALIZE /=======//
-c.getPassword = function(guessedPassword){
+c.checkPassword = function(guessedPassword){
   //The actual password is found in the checkPassword.php file
   //make a postman
   const postman = new XMLHttpRequest()
@@ -21,21 +21,40 @@ c.getPassword = function(guessedPassword){
   postman.send(guessedPassword)
   //wait for a response after a load event from server
   postman.addEventListener(`load`, function(){
-    alert(postman.response)
+    if(postman.status === 200){
+      const access = postman.responseText
+      m.passwordIsValid = (access === `ok`) ? true : false     
+    }
+    else{
+      m.passwordIsValid = false
+      console.log(`Troule connecting to server`)    
+    }
+
+  })
+  postman.addEventListener(`error`, function(){
+    m.passwordIsValid = false
+    console.log(`Troule connecting to server`)
   })
   
 }
+
 c.downloadContacts = function(){
 }
+
 c.addContact = function(){}
+
 c.saveContact = function(){}
+
 c.deleteContact = function(){}
+
 c.addAndSave = function(){
   c.addContact()
   c.saveContact()
 }
+
 c.deleteAndSave = function(){
   c.deleteContact()
   c.saveContact()
 }
+
 c.showContacts = function(){}
