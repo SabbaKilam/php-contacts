@@ -3,6 +3,7 @@
 It should:
 * ...have a place to store contacts
 * ...store contacts on the server
+* ...have away to show contacts
 * ...have a way to add contacts
 * ...have a way to delete contacts
 * ...have a way to update contacts
