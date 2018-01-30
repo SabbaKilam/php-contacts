@@ -1,0 +1,25 @@
+<!--
+  https://support.glitch.com/t/is-there-is-php-on-glitch/2503
+-->
+<html>
+  <head>
+    <title>PHP Test</title>
+  </head>
+  <body>
+    <input type="file" id="fileElement" accept=".mp3">
+    <script>
+      const fileElement = document.querySelector(`#fileElement`)
+      const getter = new XMLHttpRequest()
+      const progressReporter = getter.upload
+      
+      fileElement.onchange = ()=>{
+        const file = fileElement.files[0]
+        if(!file){return}
+        getter.open("POST", `uploadFile.php`)
+        getter.setRequestHeader(`FILENAME`, file.name)
+        getter.send(file)                                      
+      }
+      //-------------------// 
+    </script>
+  </body>
+</html>
