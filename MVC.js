@@ -19,6 +19,7 @@ c.checkPassword = function(guessedPassword){
   const postman = new XMLHttpRequest()
   postman.open(`POST`, `checkPassword.php`)
   postman.send(guessedPassword)
+  
   //wait for a response after a load event from server
   postman.addEventListener(`load`, function(){
     if(postman.status === 200){
@@ -27,25 +28,31 @@ c.checkPassword = function(guessedPassword){
     }
     else{
       m.passwordIsValid = false
-      console.log(`Troule connecting to server`)    
+      console.log(`Trouble at the server`)    
     }
-
   })
   postman.addEventListener(`error`, function(){
     m.passwordIsValid = false
-    console.log(`Troule connecting to server`)
+    console.log(`Trouble connecting to server`)
   })
-  
 }
 
 c.downloadContacts = function(){
+  if(!m.passwordIsValid){return}
+
 }
 
-c.addContact = function(){}
+c.addContact = function(){
+  if(!m.passwordIsValid){return}
+}
 
-c.saveContact = function(){}
+c.saveContact = function(){
+  if(!m.passwordIsValid){return}
+}
 
-c.deleteContact = function(){}
+c.deleteContact = function(){
+  if(!m.passwordIsValid){return}
+}
 
 c.addAndSave = function(){
   c.addContact()
@@ -57,4 +64,7 @@ c.deleteAndSave = function(){
   c.saveContact()
 }
 
-c.showContacts = function(){}
+c.showContacts = function(){
+  if(!m.passwordIsValid){return}
+  console.log(m.contacts)
+}
